@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+    </head>
+    <body>
+        {% for label, messages in app.flashes(['success', 'warning']) %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <a href="{{ path('users_list') }}">List</a>
+        <br>
+        <a href="{{ path('users_create') }}">Create</a>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
